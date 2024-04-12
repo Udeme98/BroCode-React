@@ -20,7 +20,7 @@ const TodoList = () => {
   return (
     <div className="to-do-list">
       <h1>Todo List Project</h1>
-      <div>
+      <div className="inp-but">
         <input
           type="text"
           placeholder="Enter a task..."
@@ -35,7 +35,26 @@ const TodoList = () => {
       {/* Display each task */}
       <ol>
         {tasks.map((task, index) => {
-          return <li key={index}>{task}</li>;
+          return (
+            <li key={index}>
+              <span className="text">{task}</span>
+              <button
+                className="delete-button"
+                onClick={() => deleteTask(index)}
+              >
+                Delete
+              </button>
+              <button className="move-button" onClick={() => moveTaskUp(index)}>
+                Move Up!
+              </button>
+              <button
+                className="move-button"
+                onClick={() => moveTaskDown(index)}
+              >
+                Move Down!
+              </button>
+            </li>
+          );
         })}
       </ol>
     </div>
