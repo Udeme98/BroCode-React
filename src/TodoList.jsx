@@ -1,7 +1,11 @@
 import { useState } from "react";
 
 const TodoList = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([
+    "Eat breakfast",
+    "Take a shower",
+    "Write some codes",
+  ]);
   const [newtask, setNewTask] = useState("");
 
   const handleInputChange = (e) => {
@@ -16,7 +20,6 @@ const TodoList = () => {
   return (
     <div className="to-do-list">
       <h1>Todo List Project</h1>
-
       <div>
         <input
           type="text"
@@ -28,6 +31,13 @@ const TodoList = () => {
           Add
         </button>
       </div>
+
+      {/* Display each task */}
+      <ol>
+        {tasks.map((task, index) => {
+          return <li key={index}>{task}</li>;
+        })}
+      </ol>
     </div>
   );
 };
