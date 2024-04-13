@@ -25,7 +25,17 @@ const TodoList = () => {
     // console.log(`deleted ${index}`);
   };
 
-  const moveTaskUp = (index) => {};
+  const moveTaskUp = (index) => {
+    const movedItem = [...tasks];
+    if (index > 0) {
+      [movedItem[index], movedItem[index - 1]] = [
+        movedItem[index - 1],
+        movedItem[index],
+      ];
+      setTasks(movedItem);
+    }
+  };
+
   const moveTaskDown = (index) => {};
 
   return (
