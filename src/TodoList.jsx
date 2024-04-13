@@ -19,7 +19,12 @@ const TodoList = () => {
     }
   };
 
-  const deleteTask = (index) => {};
+  const deleteTask = (index) => {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
+    // console.log(`deleted ${index}`);
+  };
+
   const moveTaskUp = (index) => {};
   const moveTaskDown = (index) => {};
 
