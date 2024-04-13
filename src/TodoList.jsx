@@ -36,7 +36,16 @@ const TodoList = () => {
     }
   };
 
-  const moveTaskDown = (index) => {};
+  const moveTaskDown = (index) => {
+    const movedItem = [...tasks];
+    if (index < tasks.length - 1) {
+      [movedItem[index], movedItem[index + 1]] = [
+        movedItem[index + 1],
+        movedItem[index],
+      ];
+      setTasks(movedItem);
+    }
+  };
 
   return (
     <div className="to-do-list">
