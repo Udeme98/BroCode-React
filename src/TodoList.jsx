@@ -12,7 +12,13 @@ const TodoList = () => {
     setNewTask(e.target.value);
   };
 
-  const addTask = () => {};
+  const addTask = () => {
+    if (newtask.trim() !== "") {
+      setTasks((t) => [...t, newtask]);
+      setNewTask("");
+    }
+  };
+
   const deleteTask = (index) => {};
   const moveTaskUp = (index) => {};
   const moveTaskDown = (index) => {};
