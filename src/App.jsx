@@ -1,4 +1,3 @@
-import "./App.css";
 import TodoList from "./TodoList";
 import DigitalClock from "./DigitalClock";
 import StopWatch from "./StopWatch";
