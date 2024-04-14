@@ -21,7 +21,13 @@ const DigitalClock = () => {
 
     hours = hours % 12 || 12;
 
-    return `${hours}:${minutes}:${seconds} ${meridian}`;
+    return `${parseZero(hours)}:${parseZero(minutes)}:${parseZero(
+      seconds
+    )} ${meridian}`;
+  };
+  const parseZero = (number) => {
+    let parsed = (number < 10 ? "0" : "") + number;
+    return parsed;
   };
 
   return (
