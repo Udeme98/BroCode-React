@@ -17,7 +17,7 @@ const DigitalClock = () => {
     let hours = date.getHours();
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
-    const meridian = hours >= 12 ? "AM" : "PM";
+    const meridian = hours >= 12 ? "PM" : "AM";
 
     hours = hours % 12 || 12;
 
@@ -27,7 +27,7 @@ const DigitalClock = () => {
   return (
     <div className="clock-container">
       <div className="clock">
-        <span>00:00:00</span>
+        <span>{formatTime()}</span>
       </div>
     </div>
   );
