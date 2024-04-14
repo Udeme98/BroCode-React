@@ -1,3 +1,6 @@
-# Mini Todo
+# BroCode - React
 
-This is a mini todo list project
+This repository contains some react projects:
+
+1. TodoList App
+2. Digital Clock
