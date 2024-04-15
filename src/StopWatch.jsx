@@ -8,9 +8,20 @@ const StopWatch = () => {
 
   useEffect(() => {}, [isRunning]);
 
-  const start = () => {};
-  const stop = () => {};
-  const reset = () => {};
+  const start = () => {
+    setIsRunning(true);
+    startTimeRef.current = Date.now() - elaspedTime;
+  };
+
+  const stop = () => {
+    setIsRunning(false);
+  };
+
+  const reset = () => {
+    setElapasedTime(0);
+    setIsRunning(false);
+  };
+
   const formatTime = () => {
     return `00:00:00`;
   };
