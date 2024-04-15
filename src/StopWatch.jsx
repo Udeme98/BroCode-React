@@ -6,7 +6,17 @@ const StopWatch = () => {
   const intervalId = useRef(null);
   const startTimeRef = useRef(0);
 
-  useEffect(() => {}, [isRunning]);
+  useEffect(() => {
+    if (isRunning) {
+      setInterval(() => {
+        intervalId.current = setElapasedTime(Date.now() - startTimeRef.current);
+      }, 10);
+    }
+
+    return () => {
+      clearInterval(intervalId.current);
+    };
+  }, [isRunning]);
 
   const start = () => {
     setIsRunning(true);
