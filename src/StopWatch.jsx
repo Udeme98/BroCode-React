@@ -8,8 +8,8 @@ const StopWatch = () => {
 
   useEffect(() => {
     if (isRunning) {
-      setInterval(() => {
-        intervalId.current = setElapasedTime(Date.now() - startTimeRef.current);
+      intervalId.current = setInterval(() => {
+        setElapasedTime(Date.now() - startTimeRef.current);
       }, 10);
     }
 
@@ -33,7 +33,16 @@ const StopWatch = () => {
   };
 
   const formatTime = () => {
-    return `00:00:00`;
+    let hours = Math.floor(elaspedTime / (1000 * 60 * 60));
+    let minutes = Math.floor((elaspedTime / (1000 * 60)) % 60);
+    let seconds = Math.floor((elaspedTime / 1000) % 60);
+    let milliseconds = Math.floor((elaspedTime % 1000) / 10);
+
+    return `${padZero(minutes)}:${padZero(seconds)}:${padZero(milliseconds)}`;
+  };
+
+  const padZero = (number) => {
+    return (number < 10 ? "0" : "") + number;
   };
 
   return (
